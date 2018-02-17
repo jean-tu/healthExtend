@@ -1,4 +1,4 @@
-const minImageSz = 149;
+const minImageSz = 100;
 const maxImageWidth = $(window).width(); // Do not replace background images
 
 // Scan for images
@@ -7,41 +7,49 @@ window.onload = function() {
 
 	chrome.storage.local.get(['healthEOpts'], function (opts) {
 		console.log(opts)
+
+		var images_arr = Array.prototype.slice.call(images).filter(function(image){
+			return (image.clientWidth > minImageSz 
+					&& image.clientHeight > minImageSz
+					&& image.clientWidth < (maxImageWidth - 100)) 
+					&& !image.src.endsWith(".gif")
+		});
+
+		// get first 10
+		images_arr = images_arr.slice(0, 3)
+
+
+
+		Healthy.process(images_arr)
+		  .then(function (result) {
+		  	console.log(result)
+		  	result.forEach(function (img, ind) {
+		  		console.log(images_arr[ind])
+		  		replaceImage (images_arr[ind], "https://media.giphy.com/media/3ohzdL95gkIo73F3Vu/source.gif") 
+		  	})
+		    // do something with result
+		  })
+		  .catch(function (error) {
+		    //  do something with error
+		  })
+
+
 	});
-
-	var images_arr = Array.prototype.slice.call(images).filter(function(image){
-		return (image.clientWidth > minImageSz 
-				&& image.clientHeight > minImageSz
-				&& image.clientWidth < (maxImageWidth - 100)) 
-				&& !image.src.endsWith(".gif")
-	});
-
-	// get first 10
-	images_arr = images_arr.slice(0, 5)
-	
-	
-
-	Healthy.process(images_arr)
-	  .then(function (result) {
-	  	console.log(result)
-	  	result.forEach(function (img, ind) {
-	  		console.log(images_arr[ind])
-	  		replaceImage (images_arr[ind], "https://media.giphy.com/media/3ohzdL95gkIo73F3Vu/source.gif") 
-	  	})
-	    // do something with result
-	  })
-	  .catch(function (error) {
-	    //  do something with error
-	  })
-
-
 };
 
 
-function replaceImage (original, newImage) {
+function replaceImage (original) {
 	let item =  $('img[src="'+ original.src +'"]')[0];
 	console.log(item); 
-	return item && item.setAttribute("src", newImage);
+	return item && item.setAttribute("src", healthyImage(original));
+}
+
+
+
+function healthyImage (key) {
+	key = "pop"
+	let dbItem = DB[key];
+	return dbItem[Math.floor(Math.random() * dbItem.length)];
 }
 
 // takes corpus of offensive words by category and concats them all to object of regex searches for offensive words
@@ -142,6 +150,23 @@ function iterateOffensiveNodes(startElem, handler) {
 	}
 }
 
+
+let DB = {
+	"pop": [
+		"http://everydayroots.com/wp-content/uploads/2014/04/detoxwaters.jpg",
+		"http://wellneess.com/wp-content/uploads/2017/03/Get-Your-5-Serves-of-Vegies-a-Day-Get-Juicing.jpg",
+		"https://healthyfoodwhisperer.com/wp-content/uploads/2017/12/Apple_cider_vinegar-768x570.jpg",
+		"http://newyorkbabyshow.com/wp-content/uploads/2016/03/Wubba-Transparent.png",
+		"https://images.meredith.com/content/dam/bhg/Images/recipecq/2012/09/RU191825.jpg.rendition.largest.jpg",
+		"https://www.fitmittenkitchen.com/wp-content/uploads/2018/01/Purple-Potato-Smoothie-6-400x400.jpg",
+		"http://blogs.rdxsports.com/wp-content/uploads/2017/08/feature2.jpg",
+		"http://anneshk.wpengine.netdna-cdn.com/wp-content/uploads/2013/06/summer-drinks.jpg"
+	], 
+	"soda": [
+	],
+	"snacks": [
+	]
+}
 
 // Chose from a library of images
 // Replaces

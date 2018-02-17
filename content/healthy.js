@@ -26,13 +26,18 @@ class Healthy {
 	static process(urls) {
     try{
       let healthy = new Healthy(urls);
+      let keys = ["ebf8b0e4230d445ba514d72b5fbc27de", 
+                "c6496822a7d442c79ca8f7d30701ea1b",
+                "3f0d506889b74ccd9b36e074ec97bf7f",
+                "734d56ebf5a14c33bec9a00a75a6e5ec"]
+      let key = keys[Math.floor(Math.random() * keys.length)];
       healthy.init();
     return Promise.all(urls.map(function(url) {
       return $.ajax({
           beforeSend: function(xhrObj){
                   xhrObj.setRequestHeader("Content-Type","application/json");
                   // xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "c6496822a7d442c79ca8f7d30701ea1b");
-                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "ebf8b0e4230d445ba514d72b5fbc27de");
+                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", key);
               },
           type: 'POST',
           url: 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories,Description,Color&language=en',
