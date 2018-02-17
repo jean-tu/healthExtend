@@ -1,22 +1,33 @@
+const minImageSz = 149;
+const maxImageWidth = $(window).width(); // Do not replace background images
 
 // Scan for images
 window.onload = function() {
 	var images = document.getElementsByTagName('img');
 
-	var images_arr = Array.prototype.slice.call(images)/*.filter(function(image){
-		return (image.clientWidth> 50 && image.clientHeight > 50);
-	});*/
-	// images_arr.forEach(function(image){
-	// 	console.log(image.src);
-	// });
+	chrome.storage.local.get(['healthEOpts'], function (opts) {
+		console.log(opts)
+	});
+
+	var images_arr = Array.prototype.slice.call(images).filter(function(image){
+		return (image.clientWidth > minImageSz 
+				&& image.clientHeight > minImageSz
+				&& image.clientWidth < maxImageWidth - 100) 
+				&& !image.src.endsWith("gif")
+	});
 
 	// get first 10
+	images_arr = images_arr.slice(0, 5)
 	
 	
 
 	Healthy.process(images_arr)
 	  .then(function (result) {
 	  	console.log(result)
+	  	result.forEach(function (img, ind) {
+	  		console.log(images_arr[ind])
+	  		// replaceImage (images_arr[ind], "https://media.giphy.com/media/3ohzdL95gkIo73F3Vu/source.gif") 
+	  	})
 	    // do something with result
 	  })
 	  .catch(function (error) {
@@ -25,6 +36,13 @@ window.onload = function() {
 
 
 };
+
+
+function replaceImage (original, newImage) {
+	let item =  $('img[src="'+ original.src +'"]')[0];
+	console.log(item); 
+	return item && item.setAttribute("src", newImage);
+}
 
 // takes corpus of offensive words by category and concats them all to object of regex searches for offensive words
 
@@ -123,3 +141,7 @@ function iterateOffensiveNodes(startElem, handler) {
 		handler(walker.currentNode);
 	}
 }
+
+
+// Chose from a library of images
+// Replaces

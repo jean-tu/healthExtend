@@ -31,7 +31,8 @@ class Healthy {
       return $.ajax({
           beforeSend: function(xhrObj){
                   xhrObj.setRequestHeader("Content-Type","application/json");
-                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "c6496822a7d442c79ca8f7d30701ea1b");
+                  // xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "c6496822a7d442c79ca8f7d30701ea1b");
+                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "ebf8b0e4230d445ba514d72b5fbc27de");
               },
           type: 'POST',
           url: 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories,Description,Color&language=en',
@@ -45,5 +46,7 @@ class Healthy {
     }
 
 	}
+
+  // filterImages (images)
 
 }

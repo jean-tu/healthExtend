@@ -20,6 +20,7 @@
 			"js": [
 				"bower_components/jquery/dist/jquery.min.js",
 				"bower_components/sentimood/sentimood.js",
+				"content/clarifai.min.js",
 				"content/blur.js",
 				"content/healthy.js",
 				"content/content.js",

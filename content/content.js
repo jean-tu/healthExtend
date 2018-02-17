@@ -69,5 +69,5 @@ chrome.storage.onChanged.addListener(function (changes, areaName) {
   .catch(function (error) {
     //  do something with error
   })*/
-
+// Supermarket: 2d4953268b
 
