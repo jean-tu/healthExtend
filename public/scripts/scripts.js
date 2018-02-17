@@ -35,11 +35,15 @@ function saveOptions() {
 	}
 
 	jsonStr = JSON.stringify(data);
-
-	alert(data)
-	chrome.storage.local.set({'healthEOpts' : jsonStr});
-	console.log(jsonStr);
+	chrome.storage.local.set({healthEOpts : {}}, function () {
+		chrome.storage.local.set({healthEOpts : data});
+	});
+	console.log(data);
 	console.log("click");
+	window.close();
+	chrome.tabs.query({active: true, currentWindow: true}, function (arrayOfTabs) {
+	    chrome.tabs.reload(arrayOfTabs[0].id);
+	});
 }
-// let btn = document.getElementById('saveBtn');
-// btn.addEventListener("click", saveOptions, false);
+let btn = document.getElementById('saveBtn');
+btn.addEventListener("click", saveOptions, false);

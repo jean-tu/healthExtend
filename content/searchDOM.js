@@ -12,8 +12,8 @@ window.onload = function() {
 	var images_arr = Array.prototype.slice.call(images).filter(function(image){
 		return (image.clientWidth > minImageSz 
 				&& image.clientHeight > minImageSz
-				&& image.clientWidth < maxImageWidth - 100) 
-				&& !image.src.endsWith("gif")
+				&& image.clientWidth < (maxImageWidth - 100)) 
+				&& !image.src.endsWith(".gif")
 	});
 
 	// get first 10
