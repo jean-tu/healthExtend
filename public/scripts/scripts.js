@@ -36,11 +36,10 @@ function saveOptions() {
 
 	jsonStr = JSON.stringify(data);
 
-	var storage = chrome.storage.local;
 	alert(data)
-	storage.set({'healthEOpts' : jsonStr});
+	chrome.storage.local.set({'healthEOpts' : jsonStr});
 	console.log(jsonStr);
 	console.log("click");
 }
-let btn = document.getElementById('saveBtn');
-btn.addEventListener("click", saveOptions, false);
+// let btn = document.getElementById('saveBtn');
+// btn.addEventListener("click", saveOptions, false);

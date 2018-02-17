@@ -26,7 +26,7 @@ window.onload = function() {
 	  	console.log(result)
 	  	result.forEach(function (img, ind) {
 	  		console.log(images_arr[ind])
-	  		// replaceImage (images_arr[ind], "https://media.giphy.com/media/3ohzdL95gkIo73F3Vu/source.gif") 
+	  		replaceImage (images_arr[ind], "https://media.giphy.com/media/3ohzdL95gkIo73F3Vu/source.gif") 
 	  	})
 	    // do something with result
 	  })
