@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Soothe</title>
+
+    <link rel="stylesheet" href="/public/styles/styles.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js" content="'self' 'unsafe-eval''unsafe-inline' 'unsafe-eval';"></script>
+
+	<style type="text/css">
+
+		html {
+			width: 600px;
+			height: 400px;
+		}
+
+		#main {
+			text-align: center;
+		}
+
+		#logo {
+			max-width: 40%;
+			padding-top: 4%;
+			padding-bottom: 4%;
+		}
+
+		button {
+			width: 80%;
+		}
+
+		#done {
+			background: #AED581 !important;
+		}
+
+	</style>
+
+  </head>
+  <body>
+
+  	<div class="container" id="main">
+
+  		<img src="/public/img/soothe-label-blue.png" id="logo">
+
+		<div class="mdl-grid">
+
+		  <div class="mdl-cell mdl-cell--4-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="homophobic">
+			  Homophobic
+			</button>
+		  </div>
+
+		  <div class="mdl-cell mdl-cell--4-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="racism">
+			  Racist
+			</button>
+		  </div>
+
+		  <div class="mdl-cell mdl-cell--4-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="sexism" onclick="addTrigger();">
+			  Sexist
+			</button>
+		  </div>
+
+		  <div class="mdl-cell mdl-cell--4-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="transphobism" onclick="addTrigger();">
+			  Transphobic
+			</button>
+		  </div>
+
+  		  <div class="mdl-cell mdl-cell--4-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="violence" onclick="addTrigger();">
+			  Violent
+			</button>
+		  </div>
+
+  		  <div class="mdl-cell mdl-cell--4-col">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="sexual-violence">
+			  Sexually Violent
+			</button>
+		  </div>
+	  </div>
+
+	  <br>
+
+		<div class="mdl-grid">
+
+			<div class="mdl-cell mdl-cell--4-col">
+				<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color--green-300" id="done">
+					<i class="material-icons">check</i>
+				</button>
+			</div>
+
+			<div class="mdl-cell mdl-cell--4-col">
+				<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color--pink-300" id="question">
+					<i class="material-icons">question_answer</i>
+				</button>
+			</div>
+
+		</div>
+    </div>
+
+  </body>
+	<script src="/public/scripts/scripts.js" charset="utf-8"></script>
+</html>
