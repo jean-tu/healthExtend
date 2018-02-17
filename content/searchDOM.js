@@ -1,3 +1,31 @@
+
+// Scan for images
+window.onload = function() {
+	var images = document.getElementsByTagName('img');
+
+	var images_arr = Array.prototype.slice.call(images)/*.filter(function(image){
+		return (image.clientWidth> 50 && image.clientHeight > 50);
+	});*/
+	// images_arr.forEach(function(image){
+	// 	console.log(image.src);
+	// });
+
+	// get first 10
+	
+	
+
+	Healthy.process(images_arr)
+	  .then(function (result) {
+	  	console.log(result)
+	    // do something with result
+	  })
+	  .catch(function (error) {
+	    //  do something with error
+	  })
+
+
+};
+
 // takes corpus of offensive words by category and concats them all to object of regex searches for offensive words
 
 var triggers_regex = {};
@@ -12,7 +40,7 @@ function generateTriggerRegexes(cb) {
 		if (cb) {
 			cb(triggers_regex);
 		}
-	});
+	});	
 
 }
 

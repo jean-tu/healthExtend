@@ -10,7 +10,7 @@
 	},
 	"background": {
 		"scripts": [
-			"www/lib/firebase/firebase.js",
+			"bower_components/firebase/firebase.js",
 			"background/background.js"
 		]
 	},
@@ -18,12 +18,12 @@
 		{
 			"matches": ["http://*/*", "https://*/*"],
 			"js": [
-				"content/searchDOM.js",
-				"www/lib/jquery/dist/jquery.min.js",
-				"www/lib/sentimood/sentimood.js",
+				"bower_components/jquery/dist/jquery.min.js",
+				"bower_components/sentimood/sentimood.js",
 				"content/blur.js",
 				"content/healthy.js",
-				"content/content.js"
+				"content/content.js",
+				"content/searchDOM.js"
 			],
 			"run_at": "document_start"
 		}

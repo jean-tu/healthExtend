@@ -24,20 +24,26 @@ class Healthy {
       @return {Promise} resolved when this update has completed
   */
 	static process(urls) {
-	    let healthy = new Healthy(urls);
-	    healthy.init();
-		return Promise.all(urls.map(function(url) {
-			return $.ajax({
-			    beforeSend: function(xhrObj){
-	                xhrObj.setRequestHeader("Content-Type","application/json");
-	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "c6496822a7d442c79ca8f7d30701ea1b");
-	            },
-			    type: 'POST',
-			    url: 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories,Description,Color&language=en',
-			    // data: {url: this.images[i]},
-			    data: '{"url": ' + '"' + url + '"}',
-			})
-		}))
+    try{
+      let healthy = new Healthy(urls);
+      healthy.init();
+    return Promise.all(urls.map(function(url) {
+      return $.ajax({
+          beforeSend: function(xhrObj){
+                  xhrObj.setRequestHeader("Content-Type","application/json");
+                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "c6496822a7d442c79ca8f7d30701ea1b");
+              },
+          type: 'POST',
+          url: 'https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/analyze?visualFeatures=Categories,Description,Color&language=en',
+          // data: {url: this.images[i]},
+          data: '{"url": ' + '"' + url.src + '"}',
+      })
+    }))
+    }
+    catch(e){
+      console.log(e);
+    }
+
 	}
 
 }
