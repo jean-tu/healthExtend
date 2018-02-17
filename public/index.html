@@ -2,105 +2,111 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Soothe</title>
+    <title>healthE</title>
 
-    <link rel="stylesheet" href="/public/styles/styles.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-	<script defer src="https://code.getmdl.io/1.3.0/material.min.js" content="'self' 'unsafe-eval''unsafe-inline' 'unsafe-eval';"></script>
+    <!--<link rel="stylesheet" href="/public/styles/styles.css">-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+    <!--font-->
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/glacial-indifference" type="text/css"/>
+
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js" content="'self' 'unsafe-eval''unsafe-inline' 'unsafe-eval';"></script>
 
 	<style type="text/css">
-
-		html {
-			width: 600px;
-			height: 400px;
-		}
-
+    body{
+      background: linear-gradient(to bottom, #33ccff 0%, #00ff99 100%);
+      color: white;
+      padding-left: 9%;
+      padding-right:9%;
+      padding-top:2%;
+      padding-bottom:2%;
+    }
+    h1 {
+      text-align: center;
+      font-family: lato;
+      font-size: 72pt;
+    }
+    p, form{
+      text-align: left;
+      font-family: 'GlacialIndifferenceRegular';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 12pt;
+    }
+    #saveButton{
+      width:100px;
+    }
 		#main {
 			text-align: center;
 		}
-
 		#logo {
 			max-width: 40%;
 			padding-top: 4%;
 			padding-bottom: 4%;
 		}
-
+    .form-check-label{
+      font-size: 18pt;
+    }
 		button {
 			width: 80%;
 		}
-
 		#done {
 			background: #AED581 !important;
 		}
-
 	</style>
-
   </head>
   <body>
-
   	<div class="container" id="main">
+  		<img src="img/healthE-logo.png" id="logo">
+    <p>healthE, is a chrome extension that will swap out images of unhealthy foods that you would normally
+      see when browsing on the web and replace them with healthier alternatives.
+    </p>
+      Select the items that you would like to hide from your view:
+      <form enctype='application/json'>
+        <p>
+        <input class="form-check-input" type="checkbox" value="drinks" id="drinks-sodas">
+        <label class="form-check-label" for="drinks-sodas">
+          Sugary Drinks (Sodas)
+        </label><br />
+        <input class="form-check-input" type="checkbox" value="snacks" id="snacks">
+        <label class="form-check-label" for="snacks">
+          Unhealthy Snacks
+        </label><br />
+        <input class="form-check-input" type="checkbox" value="fastfood" id="fastfood">
+        <label class="form-check-label" for="fastfood">
+          Fast Food
+        </label><br />
+    </p>
+    <!-- replace options-->
+    <p>
+      Now, please select what items you would like the unhealthy foods to be replaced with: <br />
+        <input class="form-check-input" type="checkbox" value="vegetables" id="vegetables">
+        <label class="form-check-label" for="vegetables">
+          Vegetables
+        </label><br />
+        <input class="form-check-input" type="checkbox" value="fruit" id="fruit">
+        <label class="form-check-label" for="fruit">
+          Fruits
+        </label><br />
+        <input class="form-check-input" type="checkbox" value="nuts" id="nuts">
+        <label class="form-check-label" for="nuts">
+          Nuts
+        </label><br />
+      </form>
 
-  		<img src="/public/img/soothe-label-blue.png" id="logo">
-
-		<div class="mdl-grid">
-
-		  <div class="mdl-cell mdl-cell--4-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="homophobic">
-			  Homophobic
-			</button>
-		  </div>
-
-		  <div class="mdl-cell mdl-cell--4-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="racism">
-			  Racist
-			</button>
-		  </div>
-
-		  <div class="mdl-cell mdl-cell--4-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="sexism" onclick="addTrigger();">
-			  Sexist
-			</button>
-		  </div>
-
-		  <div class="mdl-cell mdl-cell--4-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="transphobism" onclick="addTrigger();">
-			  Transphobic
-			</button>
-		  </div>
-
-  		  <div class="mdl-cell mdl-cell--4-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="violence" onclick="addTrigger();">
-			  Violent
-			</button>
-		  </div>
-
-  		  <div class="mdl-cell mdl-cell--4-col">
-			<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-color--light-blue-A100" id="sexual-violence">
-			  Sexually Violent
-			</button>
-		  </div>
-	  </div>
-
-	  <br>
-
-		<div class="mdl-grid">
-
-			<div class="mdl-cell mdl-cell--4-col">
-				<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color--green-300" id="done">
-					<i class="material-icons">check</i>
-				</button>
-			</div>
-
-			<div class="mdl-cell mdl-cell--4-col">
-				<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-color--pink-300" id="question">
-					<i class="material-icons">question_answer</i>
-				</button>
-			</div>
-
-		</div>
+    </div>
+    <div id="saveButton">
+      <button type="button" class="btn btn-success" onclick="myFunction()">Save</button>
     </div>
 
   </body>
-	<script src="/public/scripts/scripts.js" charset="utf-8"></script>
+	<script src="scripts/scripts.js" charset="utf-8"></script>
 </html>
