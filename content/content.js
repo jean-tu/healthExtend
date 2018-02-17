@@ -59,3 +59,15 @@ chrome.storage.onChanged.addListener(function (changes, areaName) {
 		});
 	}
 });
+
+Healthy.process(["https://www.sbs.com.au/yourlanguage/sites/sbs.com.au.yourlanguage/files/podcast_images/junk_food_-_getty_images.jpg",
+    				"https://i.ndtvimg.com/i/2015-05/junk-food_625x350_81432196524.jpg"])
+  .then(function (result) {
+  	console.log(result)
+    // do something with result
+  })
+  .catch(function (error) {
+    //  do something with error
+  })
+
+

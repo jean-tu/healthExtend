@@ -1,5 +1,5 @@
 {
-	"name": "healthE",
+	"name": "healthe",
 	"description": "Stay healthy with good food.",
 	"version": "0.0.0.1",
 	"manifest_version": 2,
@@ -10,7 +10,7 @@
 	},
 	"background": {
 		"scripts": [
-			"bower_components/firebase/firebase.js",
+			"www/lib/firebase/firebase.js",
 			"background/background.js"
 		]
 	},
@@ -19,9 +19,11 @@
 			"matches": ["http://*/*", "https://*/*"],
 			"js": [
 				"content/searchDOM.js",
+				"www/lib/jquery/dist/jquery.min.js",
+				"www/lib/sentimood/sentimood.js",
 				"content/blur.js",
-				"content/content.js",
-				"bower_components/sentimood/sentimood.js"
+				"content/healthy.js",
+				"content/content.js"
 			],
 			"run_at": "document_start"
 		}
@@ -34,7 +36,7 @@
 	],
 	"content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com 'unsafe-eval'; object-src 'self'",
 	"browser_action": {
-		"default_title": "Soothe",
+		"default_title": "healthe",
 		"default_popup": "public/index.html"
 	}
 }

@@ -1,6 +1,7 @@
 {
-  "name": "soothe",
+  "name": "healthe",
   "authors": [
+    "M uuuuu <sss@uuu.systems>"
   ],
   "description": "",
   "main": "",
@@ -15,6 +16,7 @@
   ],
   "dependencies": {
     "firebase": "^3.7.0",
-    "sentimood": "^1.1.0"
+    "sentimood": "^1.1.0",
+    "jquery": "latest"
   }
 }
