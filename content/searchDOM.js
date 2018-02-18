@@ -25,7 +25,7 @@ window.onload = function() {
 		});
 
 		// get first 10
-		images_arr = images_arr.slice(0, 3)
+		images_arr = images_arr.slice(0, 8)
 
 		let list = images_arr.map(a => a.currentSrc);
 		console.log(list)
@@ -70,7 +70,7 @@ window.onload = function() {
 		  		// Use average food type as key to replace
 
 
-		  		replaceImage(images_arr[ind], key)
+		  		replaceImage(images_arr[ind], maxItem)
 		  	})
 		    // do something with result
 		  })
@@ -86,14 +86,16 @@ window.onload = function() {
 function replaceImage (original, key) {
 	let item =  $('img[src="'+ original.src +'"]')[0];
 	console.log(item);
+	console.log(healthyImage(key));
 	return item && item.setAttribute("src", healthyImage(key));
 }
 
 
 
 function healthyImage (key) {
-	key = "fastfood"
 	let dbItem = DB[key];
+	console.log(key)
+	console.log(dbItem)
 	return dbItem[Math.floor(Math.random() * dbItem.length)];
 }
 

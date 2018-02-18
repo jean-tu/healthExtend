@@ -54,7 +54,7 @@ class Healthy {
 
   static preProcess (urls) {
 
-    const clarifiaApp = new Clarifai.App({apiKey: 'af6f6b9ff13a46fb92a7db31486aeb09'});
+    const clarifiaApp = new Clarifai.App({apiKey: 'd760d56dec2946258f38dae4b338bc6d'});
     try {
       return clarifiaApp.models.predict("bd367be194cf45149e75f01d59f77ba7", urls)
     }
