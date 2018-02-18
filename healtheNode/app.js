@@ -46,7 +46,7 @@ app.post('/getHealthyFood', function(req, res, next){
 	  else{
 		  const db = client.db("healthe");
 		 db.collection('items').find({}).toArray(function(err, data){
-		 	res.send(JSON.stringify(data));
+		 	res.json(data);
 		 })
 	  }
 
