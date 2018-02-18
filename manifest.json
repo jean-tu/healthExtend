@@ -1,12 +1,12 @@
 {
-	"name": "healthe",
+	"name": "healthE",
 	"description": "Stay healthy with good food.",
 	"version": "0.0.0.1",
 	"manifest_version": 2,
 	"icons": {
-    "16": "public/img/soothe-icon-16.png",
-    "48": "public/img/soothe-icon-48.png",
-    "128": "public/img/soothe-icon-128.png"
+    "16": "public/img/healthE-logo-16.png",
+    "48": "public/img/healthE-logo-48.png",
+    "128": "public/img/healthE-logo-128.png"
 	},
 	"background": {
 		"scripts": [

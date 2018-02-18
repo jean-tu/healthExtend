@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>healthE</title>
 
-  <!--<link rel="stylesheet" href="/public/styles/styles.css">-->
+  <link rel="stylesheet" href="/public/styles/styles.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- Optional theme -->
@@ -16,101 +17,102 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
 
   <!--font-->
-  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/glacial-indifference" type="text/css"/>
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/glacial-indifference" type="text/css" />
 
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js" content="'self' 'unsafe-eval''unsafe-inline' 'unsafe-eval';"></script>
 
   <style type="text/css">
-
     html {
-      width: 500px;
+      width: 400px;
     }
 
-    body{
+    body {
       background: linear-gradient(to bottom, #33ccff 0%, #00ff99 100%);
       color: white;
       padding-left: 9%;
-      padding-right:9%;
-      padding-top:2%;
-      padding-bottom:2%;
+      padding-right: 9%;
+      padding-top: 2%;
+      padding-bottom: 2%;
     }
+
     h1 {
       text-align: center;
       font-family: lato;
       font-size: 72pt;
     }
-    p, form{
+
+    p,
+    form {
       text-align: left;
       font-family: 'GlacialIndifferenceRegular';
       font-weight: normal;
       font-style: normal;
       font-size: 12pt;
     }
-    #saveButton{
-      width:100px;
+
+    #saveButton {
+      width: 100px;
     }
+
     #main {
-     text-align: center;
-   }
-   #logo {
-     max-width: 40%;
-     padding-top: 4%;
-     padding-bottom: 4%;
-   }
-   .form-check-label{
-    font-size: 18pt;
+      text-align: center;
     }
+
+    #logo {
+      max-width: 40%;
+      padding-top: 4%;
+      padding-bottom: 4%;
+    }
+
+    .form-check-label {
+      font-size: 18pt;
+    }
+
     button {
-     width: 80%;
+      width: 80%;
     }
-    #done {
-     background: #AED581 !important;
-    }
-</style>
+  </style>
 </head>
+
 <body>
   <div class="container-fluid" id="main">
-  <div class="row">
-
     <img src="img/healthE-logo.png" id="logo">
-    <p>healthE, is a chrome extension that will swap out images of unhealthy foods that you would normally
-      see when browsing on the web and replace them with healthier alternatives.
-    </p>
-    Select the items that you would like to hide from your view:
-    <form class="row" enctype='application/json'>
-      <p>
-        <input class="form-check-input" type="checkbox" value="drinks" id="drinks-sodas">
-        <label class="form-check-label" for="drinks-sodas">
-          Sugary Drinks (Sodas)
-        </label><br />
-        <input class="form-check-input" type="checkbox" value="snacks" id="snacks">
-        <label class="form-check-label" for="snacks">
-          Unhealthy Snacks
-        </label><br />
-        <input class="form-check-input" type="checkbox" value="fastfood" id="fastfood">
-        <label class="form-check-label" for="fastfood">
-          Fast Food
-        </label><br />
+    <div class="row">
+      <p>healthE, is a chrome extension that will swap out images of unhealthy foods that you would normally see when browsing on the web and replace them with healthier alternatives.
       </p>
-      <!-- replace options-->
-      <p>
-        Now, please select what items you would like the unhealthy foods to be replaced with: <br />
-        <input class="form-check-input" type="checkbox" value="vegetables" id="vegetables">
-        <label class="form-check-label" for="vegetables">
-          Vegetables
-        </label><br />
-        <input class="form-check-input" type="checkbox" value="fruit" id="fruit">
-        <label class="form-check-label" for="fruit">
-          Fruits
-        </label><br />
-        <input class="form-check-input" type="checkbox" value="nuts" id="nuts">
-        <label class="form-check-label" for="nuts">
-          Nuts
-        </label><br />
-      </form>
+      Select the items that you would like to hide from your view: <br /><br />
+      <div class="col-xs-4 text-left" >
+        <!--column 1-->
+        <span style="font-size:16pt;">Soda</span><br /><br />
+        <span style="font-size:16pt;">Chips</span><br /><br />
+        <span style="font-size:16pt;">Fast food</span>
+        <br /><br />
+      </div>
 
+      <div class="col-xs-4">
+        <label class="switch">
+        <input class="toggle" type="checkbox" id="sodavVege">
+        <span class="slider round"></span>
+      </label>
+        <label class="switch">
+        <input class="toggle" type="checkbox" id="chipvNuts">
+        <span class="slider round"></span>
+      </label>
+        <label class="switch">
+        <input class="toggle" type="checkbox" id="ffvFruit">
+        <span class="slider round"></span>
+      </label>
+        <br /><br />
+      </div>
 
-  </div>
+      <div class="col-xs-4 text-right">
+        <span style="font-size:16pt;">Vegetables</span><br /><br />
+        <span style="font-size:16pt;">Nuts</span><br /><br />
+        <span style="font-size:16pt;">Fruit</span><br /><br />
+        <br /><br />
+      </div>
+
+    </div>
   </div>
   <div id="saveButton">
     <button type="button" class="btn btn-success" id="saveBtn">Save</button>
@@ -118,4 +120,5 @@
 
 </body>
 <script src="scripts/scripts.js" charset="utf-8"></script>
+
 </html>
