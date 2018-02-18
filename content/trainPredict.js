@@ -21,19 +21,12 @@ class Predictor {
     }
     this.classifier.probabilities();
   }
-  // train();
-
-  // classifier.probabilities();
+  
 
   determineType (item) {
-    console.log(dataset)
     var obj = this.classifier.guess(item)
-    console.log(obj)
     var res = Object.keys(obj).reduce(function(a, b){ return obj[a]['probability'] > obj[b]['probability']? a : b });
-
-    console.log("HERE")
-    console.log(res)
-    console.log("\n\n\n")
+    return res;
   }
 
 
