@@ -18,12 +18,20 @@ window.onload = function() {
 		// get first 10
 		images_arr = images_arr.slice(0, 3)
 
+		console.log(images_arr)
 
+		let list = images_arr.map(a => a.currentSrc);
+		console.log(list)
 
-		Healthy.process(images_arr)
+		Healthy.preProcess(list)
 		  .then(function (result) {
-		  	console.log(result)
-		  	result.forEach(function (img, ind) {
+		  	let res = result.rawData.outputs
+		  	console.log(res)
+		  	res.forEach(function (img, ind) {
+		  		var filteredImg = img.data.concepts.filter(function(im){
+				    return im.value >= 0.8;
+				});
+		  		console.log(filteredImg)
 		  		console.log(images_arr[ind])
 		  		replaceImage (images_arr[ind], "https://media.giphy.com/media/3ohzdL95gkIo73F3Vu/source.gif") 
 		  	})
@@ -38,6 +46,11 @@ window.onload = function() {
 };
 
 
+// function determineType () {
+// 	return 
+// }
+
+
 function replaceImage (original) {
 	let item =  $('img[src="'+ original.src +'"]')[0];
 	console.log(item); 
@@ -47,11 +60,14 @@ function replaceImage (original) {
 
 
 function healthyImage (key) {
-	key = "pop"
+	key = "fastfood"
 	let dbItem = DB[key];
 	return dbItem[Math.floor(Math.random() * dbItem.length)];
 }
 
+function shouldReplace (response) {
+
+}
 // takes corpus of offensive words by category and concats them all to object of regex searches for offensive words
 
 var triggers_regex = {};
@@ -152,7 +168,7 @@ function iterateOffensiveNodes(startElem, handler) {
 
 
 let DB = {
-	"pop": [
+	"soda": [
 		"http://everydayroots.com/wp-content/uploads/2014/04/detoxwaters.jpg",
 		"http://wellneess.com/wp-content/uploads/2017/03/Get-Your-5-Serves-of-Vegies-a-Day-Get-Juicing.jpg",
 		"https://healthyfoodwhisperer.com/wp-content/uploads/2017/12/Apple_cider_vinegar-768x570.jpg",
@@ -162,7 +178,16 @@ let DB = {
 		"http://blogs.rdxsports.com/wp-content/uploads/2017/08/feature2.jpg",
 		"http://anneshk.wpengine.netdna-cdn.com/wp-content/uploads/2013/06/summer-drinks.jpg"
 	], 
-	"soda": [
+	"fastfood": [
+		"https://i.ndtvimg.com/i/2015-05/junk-food_625x350_81432196524.jpg",
+		"https://cdn1.medicalnewstoday.com/content/images/articles/317/317122/junk-food.jpg",
+		"http://del.h-cdn.co/assets/15/51/768x530/gallery-1450462207-gettyimages-126551697.jpg",
+		"https://shk-images.s3.amazonaws.com/wp-content/uploads/2012/07/11111443/junk-food-1200facebook.jpg",
+		"https://www.naturalnews.com/wp-content/uploads/sites/91/2017/11/Frosted-Doughnuts-Sweet-Junk-Food.jpg",
+		"https://www.rmit.edu.au/content/dam/rmit/rmit-images/news/2016/may/Pizza_Eating_Istock_C_1440px_72dpi.jpg.transform/rendition-1220x731/image.jpg",
+		"https://i0.wp.com/www.womensweb.in/wp-content/uploads/2013/11/what-junk-food-does-to-hormones.jpg",
+		"https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2015/fastfood.jpg",
+		"https://pixel.nymag.com/imgs/daily/science/2016/08/23/23-junk-food.w710.h473.jpg"
 	],
 	"snacks": [
 	]

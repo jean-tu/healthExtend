@@ -20,6 +20,8 @@ function processMutation (mutRec) {
 	}
 }
 
+
+
 var globalObserver = new MutationObserver(function (muts) {
 	muts.forEach(processMutation);
 });

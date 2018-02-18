@@ -52,6 +52,39 @@ class Healthy {
 
 	}
 
+  static preProcess (urls) {
+
+    const clarifiaApp = new Clarifai.App({apiKey: 'af6f6b9ff13a46fb92a7db31486aeb09'});
+    try {
+      return clarifiaApp.models.predict("bd367be194cf45149e75f01d59f77ba7", urls)
+      // .then(
+      //     function(response) {
+      //       // do something with response
+      //       // console.log(response.rawData.outputs[0].data.concepts)
+      //       console.log(response.rawData.outputs)
+      //     },
+      //     function(err) {
+      //       // there was an error
+      //       console.log(err)
+      //     }
+      //   ); }
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+
   // filterImages (images)
 
 }
+
+// [
+//   "http://everydayroots.com/wp-content/uploads/2014/04/detoxwaters.jpg",
+//   "http://wellneess.com/wp-content/uploads/2017/03/Get-Your-5-Serves-of-Vegies-a-Day-Get-Juicing.jpg",
+//   "https://healthyfoodwhisperer.com/wp-content/uploads/2017/12/Apple_cider_vinegar-768x570.jpg",
+//   "http://newyorkbabyshow.com/wp-content/uploads/2016/03/Wubba-Transparent.png",
+//   "https://images.meredith.com/content/dam/bhg/Images/recipecq/2012/09/RU191825.jpg.rendition.largest.jpg",
+//   "https://www.fitmittenkitchen.com/wp-content/uploads/2018/01/Purple-Potato-Smoothie-6-400x400.jpg",
+//   "http://blogs.rdxsports.com/wp-content/uploads/2017/08/feature2.jpg",
+//   "http://anneshk.wpengine.netdna-cdn.com/wp-content/uploads/2013/06/summer-drinks.jpg"
+// ]
