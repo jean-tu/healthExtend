@@ -1,17 +1,21 @@
 const minImageSz = 100;
 const maxImageWidth = $(window).width(); // Do not replace background images
 
+let predictor = new Predictor ();
+predictor.train();
+
 // Scan for images
 window.onload = function() {
 	var images = document.getElementsByTagName('img');
+
 
 	chrome.storage.local.get(['healthEOpts'], function (opts) {
 		console.log(opts)
 
 		var images_arr = Array.prototype.slice.call(images).filter(function(image){
-			return (image.clientWidth > minImageSz 
+			return (image.clientWidth > minImageSz
 					&& image.clientHeight > minImageSz
-					&& image.clientWidth < (maxImageWidth - 100)) 
+					&& image.clientWidth < (maxImageWidth - 100))
 					&& !image.src.endsWith(".gif")
 		});
 
@@ -33,7 +37,14 @@ window.onload = function() {
 				});
 		  		console.log(filteredImg)
 		  		console.log(images_arr[ind])
-		  		replaceImage (images_arr[ind], "https://media.giphy.com/media/3ohzdL95gkIo73F3Vu/source.gif") 
+
+		  		// get average rating to determine food Type
+		  		predictor.determineType(filteredImg[0].name)
+
+		  		// Use average food type as key to replace
+
+
+		  		replaceImage(images_arr[ind], "https://media.giphy.com/media/3ohzdL95gkIo73F3Vu/source.gif")
 		  	})
 		    // do something with result
 		  })
@@ -46,14 +57,9 @@ window.onload = function() {
 };
 
 
-// function determineType () {
-// 	return 
-// }
-
-
 function replaceImage (original) {
 	let item =  $('img[src="'+ original.src +'"]')[0];
-	console.log(item); 
+	console.log(item);
 	return item && item.setAttribute("src", healthyImage(original));
 }
 
@@ -82,7 +88,7 @@ function generateTriggerRegexes(cb) {
 		if (cb) {
 			cb(triggers_regex);
 		}
-	});	
+	});
 
 }
 

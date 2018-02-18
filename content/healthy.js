@@ -57,17 +57,6 @@ class Healthy {
     const clarifiaApp = new Clarifai.App({apiKey: 'af6f6b9ff13a46fb92a7db31486aeb09'});
     try {
       return clarifiaApp.models.predict("bd367be194cf45149e75f01d59f77ba7", urls)
-      // .then(
-      //     function(response) {
-      //       // do something with response
-      //       // console.log(response.rawData.outputs[0].data.concepts)
-      //       console.log(response.rawData.outputs)
-      //     },
-      //     function(err) {
-      //       // there was an error
-      //       console.log(err)
-      //     }
-      //   ); }
     }
     catch(e){
       console.log(e);

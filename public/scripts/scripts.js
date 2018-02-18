@@ -2,41 +2,16 @@
 // Jean added
 function saveOptions() {
 	var data = {};
-	if(document.getElementById("drinks-sodas").checked){
-		data['drinks']= true;
-		console.log(true);
-	} else {
-		data['drinks'] = false;
-	}
-	if (document.getElementById("snacks").checked){
-		data['snacks']= true;
-	} else{
-		data['snacks']= false;
-	}
-	if (document.getElementById("fastfood").checked){
-		data['fastfood']= true;
-	} else{
-		data['fastfood']= false;
-	}
-	if (document.getElementById("vegetables").checked){
-		data['vegetables']= true;
-	} else{
-		data['vegetables']= false;
-	}
-	if (document.getElementById("fruit").checked){
-		data['fruit']= true;
-	} else{
-		data['fruit']= false;
-	}
-	if (document.getElementById("nuts").checked){
-		data['nuts']= true;
-	} else{
-		data['nuts']= false;
-	}
+  data['vegetables']= document.getElementById("sodavVege").checked;
+  data['drinks'] = !document.getElementById("sodavVege").checked;
+  data['nuts']= document.getElementById("chipvNuts").checked;
+  data['snacks'] = !document.getElementById("chipvNuts").checked;
+  data['fruit']= document.getElementById("ffvFruit").checked;
+  data['fastfood'] = !document.getElementById("ffvFruit").checked;
 
 	jsonStr = JSON.stringify(data);
-	chrome.storage.local.set({healthEOpts : {}}, function () {
-		chrome.storage.local.set({healthEOpts : data});
+	chrome.storage.sync.set({healthEOpts : {}}, function () {
+		chrome.storage.sync.set({healthEOpts : data});
 	});
 	console.log(data);
 	console.log("click");
