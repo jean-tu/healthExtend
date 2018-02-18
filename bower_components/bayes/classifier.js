@@ -160,3 +160,9 @@ class Classifier {
   }
 
 }
+
+// Welcome to the Baader-Meinhof phenomenon, otherwise known as frequency illusion or recency illusion
+// https://www.sciencedirect.com/science/article/pii/0031938483900033
+// the pleasantness of the sight of a food which has been eaten to satiety decreases more than the pleasantness of the sight of foods which have not been eaten
+
+// Wealthsimple handily applied the Baader-Meinhof Phenomenon to their marketing and it seems to have paid off for them. Applying a blanket branding technique to directly target their desired audience has not only made them memorable, but more approachable.
