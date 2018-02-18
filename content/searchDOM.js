@@ -1,4 +1,4 @@
-const minImageSz = 10;
+const minImageSz = 100;
 const maxImageWidth = $(window).width(); // Do not replace background images
 
 let predictor = new Predictor ();
